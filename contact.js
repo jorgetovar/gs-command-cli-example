@@ -8,7 +8,8 @@ const {
   getContact,
   getContactList,
   updateContact,
-  deleteContact
+  deleteContact,
+  deleteAll
 } = require('./logic');
 
 const questions = [
@@ -67,6 +68,12 @@ program
   .alias('d')
   .description('Delete contact')
   .action(_id => deleteContact(_id));
+
+  program
+  .command('deleteAll')
+  .alias('d*')
+  .description('Delete all')
+  .action(_id => deleteAll());
 
 program
   .command('getContactList')

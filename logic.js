@@ -91,11 +91,23 @@ const getContactList = () => {
     })
 }
 
+const deleteAll = () => {
+
+  Contact.deleteMany({})
+  .exec((err, status) => {
+    assert.equal(null, err);
+    console.info('Deleted successfully');
+    getContactList();
+  });
+
+}
+
 // Export all methods
 module.exports = {
   addContact,
   getContact,
   getContactList,
   updateContact,
-  deleteContact
+  deleteContact,
+  deleteAll
 };
